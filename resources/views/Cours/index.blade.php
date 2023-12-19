@@ -5,10 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    
+
     <title>List des cours</title>
 </head>
 <body>
+
+    <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="navbar-brand">Gestion Formations</a>
+        @if (Route::has('login'))
+            <div class="form-inline">
+                @auth
+                    <a href="{{ url('/dashboard') }}" class="mr-sm-2">Dashboard</a>
+                @else
+                    <a href="{{ route('login') }}" class="mr-sm-2">Log in</a>
+        
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="mr-sm-2">Register</a>
+                    @endif
+                @endauth
+            </div>
+        @endif
+
+    </nav>
+
     <h1 class="text-danger">Liste des Cours Disponibles</h1>
     <a href="{{ route('Cours.create') }}"><button class="btn btn-info">Ajouter un cours</button></a>
     

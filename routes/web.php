@@ -13,7 +13,7 @@ use App\Http\Controllers\CoursController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::resource("/Cours", CoursController::class);
+Route::resource("/Cours", CoursController::class)-> middleware('auth');
 
 Route::get('/', function () {
     return view('welcome');
